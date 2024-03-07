@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS Spam Classifier</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+        }
+
+        .container {
+            background-color: #444;
+            padding: 20px;
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 80%;
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            color: #ff0000;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            color: #8b0000;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+            margin-bottom: 20px;
+            color: #333;
+            background-color: #f0f0f0;
+        }
+
+        button {
+            background-color: #ffd700;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ccac00;
+        }
+
+        #predictionResult {
+            font-size: 20px;
+            margin-top: 20px;
+            color: #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SMS Spam Classifier</h1>
+        <label for="smsInput">Enter message:</label><br>
+        <textarea id="smsInput" rows="4" cols="50"></textarea><br>
+        <button onclick="predict()">Predict</button>
+        <div id="predictionResult"></div>
+    </div>
+
+    <script>
+        function transformText(text) {
+            return text;
+        }
+
+        function predict() {
+            var inputText = document.getElementById("smsInput").value;
+            var transformedText = transformText(inputText);
+            var result = Math.random() < 0.5 ? "Not Spam" : "Spam";
+            document.getElementById("predictionResult").innerText = "Prediction: " + result;
+        }
+    </script>
+</body>
+</html>
